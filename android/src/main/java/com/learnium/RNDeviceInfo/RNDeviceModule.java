@@ -95,8 +95,8 @@ public class RNDeviceModule extends ReactContextBaseJavaModule {
     if (layout != Configuration.SCREENLAYOUT_SIZE_LARGE && layout != Configuration.SCREENLAYOUT_SIZE_XLARGE) {
       return false;
     }
-    DisplayMetrics metrics = new DisplayMetrics();
-    getCurrentActivity().getWindowManager().getDefaultDisplay().getMetrics(metrics);
+    final Context ctx = getReactApplicationContext();
+    final DisplayMetrics metrics = ctx.getResources().getDisplayMetrics();
     if (metrics.densityDpi == DisplayMetrics.DENSITY_DEFAULT
             || metrics.densityDpi == DisplayMetrics.DENSITY_HIGH
             || metrics.densityDpi == DisplayMetrics.DENSITY_MEDIUM
